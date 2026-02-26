@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CMS Portal Gateway | Patel Traders</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+        :root { --bhagwa: #ff9933; --bg-dark: #080a0f; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-dark); color: #ffffff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; overflow: hidden; }
+        
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 153, 51, 0.2); border-radius: 28px; }
+        
+        .btn-bhagwa { background: linear-gradient(135deg, #ff9933, #cc5500); color: white; font-weight: 800; text-transform: uppercase; border-radius: 16px; padding: 18px; width: 100%; cursor: pointer; border: none; box-shadow: 0 10px 20px rgba(255, 153, 51, 0.2); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 12px; text-decoration: none; }
+        .btn-bhagwa:hover { transform: translateY(-2px); box-shadow: 0 15px 25px rgba(255, 153, 51, 0.4); }
+
+        .btn-outline { background: rgba(255, 153, 51, 0.05); border: 2px solid var(--bhagwa); color: var(--bhagwa); font-weight: 800; text-transform: uppercase; border-radius: 16px; padding: 16px; width: 100%; cursor: pointer; transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 12px; text-decoration: none; }
+        .btn-outline:hover { background: var(--bhagwa); color: white; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 153, 51, 0.2); }
+        
+        /* 🎯 Animations */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.4); } 70% { box-shadow: 0 0 0 20px rgba(255, 153, 51, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0); } }
+        
+        .animate-fade-down { animation: fadeInDown 1s ease-out forwards; }
+        .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        #welcomeScreen { transition: opacity 0.5s ease; }
+    </style>
+</head>
+<body>
+
+    <div id="welcomeScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center bg-[#080a0f]">
+        <div class="mb-14 animate-fade-down">
+            <img src="https://i.ibb.co/C30Ybjck/PT-20250224-170650-0000.png" class="w-32 md:w-40 mx-auto rounded-[40px] shadow-[0_20px_50px_rgba(255,153,51,0.3)] border-2 border-[#ff9933]/50 mb-8" crossorigin="anonymous">
+            
+            <h4 class="text-[#ff9933] font-black uppercase tracking-[6px] text-[10px] md:text-xs mb-3">Welcome to the</h4>
+            <h1 class="text-4xl md:text-6xl font-black text-white uppercase italic leading-tight mb-4 tracking-wider">
+                CMS Portal
+            </h1>
+            
+            <div class="flex flex-col items-center gap-1">
+                <p class="text-white/60 text-xs md:text-sm font-bold tracking-[4px] uppercase">Customer Management System</p>
+                <div class="w-12 h-[1px] bg-[#ff9933]/50 my-2"></div>
+                <p class="text-white/30 text-[10px] md:text-xs font-black tracking-[6px] uppercase">Of Patel Traders</p>
+            </div>
+        </div>
+
+        <button onclick="enterGateway()" class="bg-transparent border border-[#ff9933]/30 text-[#ff9933] hover:bg-[#ff9933]/10 px-12 py-5 rounded-2xl max-w-sm w-full font-black uppercase tracking-[4px] text-xs transition-all duration-300" style="animation: pulse-glow 2.5s infinite;">
+            Enter Gateway →
+        </button>
+    </div>
+
+
+    <div id="selectionBox" class="glass-card p-8 md:p-12 w-full max-w-lg text-center shadow-[0_20px_50px_rgba(255,153,51,0.1)] relative overflow-hidden hidden">
+        
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-[#ff9933] rounded-full blur-[90px] opacity-20 pointer-events-none"></div>
+
+        <img src="https://i.ibb.co/C30Ybjck/PT-20250224-170650-0000.png" class="w-20 mx-auto rounded-3xl border border-[#ff9933]/50 shadow-2xl mb-6 relative z-10" crossorigin="anonymous">
+        
+        <h2 class="text-2xl font-black text-white uppercase italic mb-8 relative z-10 tracking-widest border-b border-white/5 pb-4">
+            Select Destination
+</h2>
+        
+        <div class="space-y-5 relative z-10">
+            <a href="https://sheelu955.github.io/Customer-Service/" class="btn-bhagwa">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                Customer Support Portal
+            </a>
+            
+            <a href="https://sheelu955.github.io/Admin/" class="btn-outline">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Admin Control Center
+            </a>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/10 relative z-10">
+            <p class="text-[9px] text-white/30 font-black tracking-[4px] uppercase flex items-center justify-center gap-2">
+                <svg class="w-3 h-3 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                End-to-End Encrypted
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth transition logic
+        function enterGateway() {
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const selectionBox = document.getElementById('selectionBox');
+            
+            // Fade out the welcome screen
+            welcomeScreen.style.opacity = '0';
+            
+            // After fade out completes (500ms), hide it and show the selection box
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                selectionBox.classList.remove('hidden');
+                selectionBox.classList.add('animate-fade-up'); // Animate the box sliding up smoothly
+            }, 500);
+        }
+    </script>
+</body>
+</html>
